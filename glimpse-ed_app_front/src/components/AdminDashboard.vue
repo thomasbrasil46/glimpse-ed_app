@@ -1,19 +1,17 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const message = ref('Welcome to the Admin Dashboard');
 
 const posts = ref([]);
 
-const title = ref('');
-const body = ref('');
-const API_URL = 'http://localhost:3000/posts';
+const API_URL = 'http://localhost:3000/watcher/';
 
 const createPost = async() => {
     const res = await fetch(API_URL, {
-        method: 'POST',
+        // método get para capturar o link do QR code gerado pelo backend
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: title.value, body: body.value })
+        body: JSON.stringify({  })
     });
 }
 
@@ -22,8 +20,11 @@ const createPost = async() => {
 
 <template>
     <div class="admin-dashboard">
-        <h1>Admin Dashboard</h1>
+        <h1>Dá uma olhadinha!</h1>
         <!-- Add your admin dashboard content here -->
+        <button @click="createPost">Gerar QR Code</button>
+        <p>Copiar link</p>
+        <input/>
     </div>
 </template>
 
@@ -35,5 +36,17 @@ const createPost = async() => {
 .admin-dashboard h1 {
     font-size: 2em;
     margin-bottom: 20px;
+}
+
+.admin-dashboard button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.admin-dashboard input {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 1em;
 }
 </style>
