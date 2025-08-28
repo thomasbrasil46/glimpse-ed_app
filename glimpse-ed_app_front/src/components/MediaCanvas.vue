@@ -24,5 +24,8 @@ watch(() => props.src, draw)
 </template>
 
 <style scoped>
-canvas { max-width: 100%; height: auto; }
+canvas {
+  max-width: 100%;
+  height: auto;
+}
 </style>
