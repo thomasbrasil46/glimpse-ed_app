@@ -13,7 +13,7 @@ const gerarToken = async () => {
   const res = await fetch(`${API_URL}/admin/accesses`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({})
+    body: JSON.stringify({media_group_id: 1})
   });
   if (!res.ok) throw new Error('Falha ao gerar token');
   const data = await res.json();
